@@ -1,3 +1,6 @@
 [submodule "orbbec"]
 	path = orbbec
 	url = https://github.com/orbbec/OrbbecSDK_ROS2.git
+[submodule "kobuki"]
+	path = kobuki
+	url = https://github.com/CollaborativeRoboticsLab/kobuki.git
