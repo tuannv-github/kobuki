@@ -5,7 +5,11 @@ twist_mux:
         topic: "/nav_cmd_vel"  # From navigation stack
         timeout: 1.0          # Timeout in seconds
         priority: 10          # Lower priority
-      joystick:
-        topic: "/joy_cmd_vel" # From joystick
+      joystick_remote:
+        topic: "/joy_remote_cmd_vel" # From joystick
         timeout: 1.0          # Timeout in seconds
         priority: 20          # Higher priority
+      joystick_local:
+        topic: "/joy_local_cmd_vel" # From joystick
+        timeout: 1.0          # Timeout in seconds
+        priority: 30          # Higher priority

@@ -38,7 +38,7 @@ def generate_launch_description():
                 {'enable_button': 0},  # Button to enable (e.g., L1)
                 {'enable_turbo_button': -1},  # Disable turbo
             ],
-            remappings=[('/cmd_vel', '/joy_cmd_vel')],  # Remap /cmd_vel to /joy_cmd_vel
+            remappings=[('/cmd_vel', '/joy_local_cmd_vel')],  # Remap /cmd_vel to /joy_cmd_vel
         )
 
     pkg_share = get_package_share_directory('kobuki_bringup')
