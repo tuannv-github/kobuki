@@ -4,6 +4,7 @@ import json
 import uuid
 import iperf3
 from clickhouse_driver import Client
+import time
 
 class Direction(Enum):
     UPLINK = 0
@@ -178,6 +179,7 @@ class Iperf3Tester:
 
     def run(self, senarios):
         test_id = uuid.uuid4().hex
+        print(f"*** Test ID: ${test_id}")
         for senario in senarios:
             print(f"*** Running iperf3 test in {senario.direction.name} direction with target throughput {senario.target_throughput}")
             iperf3_result = self.run_iperf3_client("10.1.101.18", senario)
@@ -190,6 +192,7 @@ class Iperf3Tester:
             with open('iperf3_result_downlink.json', 'w') as f:
                 json.dump(result, f, indent=4)
             self.publish_result_to_clickhouse(result)
+            time.sleep(10)  # Sleep for 5 seconds between tests
 
 if __name__ == "__main__":
     iperf3_test = Iperf3Tester()
